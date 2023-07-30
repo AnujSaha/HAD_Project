@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html ng-app="bmiApp">
+<head>
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="bmi.css">
+    <script src="angular.min.js"></script>
+    <script src="bmi.js"></script>
+</head>
+<body>
+    <div ng-controller="bmiController" class="container">
+        <h1>BMI Calculator</h1>
+
+        <p>Height (cm)</p>
+        <input type="number" ng-model="height">
+
+        <p>Weight (kg)</p>
+        <input type="number" ng-model="weight">
+
+        <button ng-click="calculateBMI()">Calculate</button>
+
+        <div id="result">
+            <p ng-if="bmiValue">{{ bmiCategory }}: {{ bmiValue }}</p>
+        </div>
+    </div>
+</body>
+</html>

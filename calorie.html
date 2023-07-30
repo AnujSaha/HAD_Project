@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html ng-app="calorieApp">
+<head>
+    <title>Calorie Calculator</title>
+    <link rel="stylesheet" href="calorie.css">
+    <script src="angular.min.js"></script>
+    <script src="calorie.js"></script>
+</head>
+<body>
+    <div ng-controller="calorieController" class="container">
+        <h1>Calorie Calculator</h1>
+
+        <p>Age (years)</p>
+        <input type="number" ng-model="age">
+
+        <p>Weight (kg)</p>
+        <input type="number" ng-model="weight">
+
+        <p>Height (cm)</p>
+        <input type="number" ng-model="height">
+
+        <p>Gender</p>
+        <select ng-model="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <p>Activity Level</p>
+        <select ng-model="activityLevel">
+            <option value="sedentary">Sedentary (little or no exercise)</option>
+            <option value="lightlyActive">Lightly Active (light exercise/sports 1-3 days/week)</option>
+            <option value="moderatelyActive">Moderately Active (moderate exercise/sports 3-5 days/week)</option>
+            <option value="veryActive">Very Active (hard exercise/sports 6-7 days a week)</option>
+            <option value="extraActive">Extra Active (very hard exercise/sports and a physical job)</option>
+        </select>
+
+        <button ng-click="calculateCalories()">Calculate</button>
+
+        <div id="result">
+            <p ng-if="calories">Your Daily Calorie Intake: {{ calories }} calories</p>
+        </div>
+    </div>
+</body>
+</html>
