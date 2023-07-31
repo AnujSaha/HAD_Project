@@ -6,7 +6,7 @@ angular.module('myApp', []).controller('LoginController', function($scope) {
       window.location.href = 'fitmain.html';
     } else {
       // Show an error message.
-      alert('Naam me kya rakha hai');
+      alert('Login Successfully');
     }
   };
 });
