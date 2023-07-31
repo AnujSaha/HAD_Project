@@ -16,16 +16,24 @@ h1{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
 }
 body {
+  width: 100%;
+  height: 100vh;
   font-family: Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
+  background-image: linear-gradient(rgba(0,0,50,0.8),rgba(0,0,50,0.8)),url(bg1.jpg);
+  background-position: center;
+  background-size: cover;
+
+
 }
 button {
-  background-color: #333; /* Green */
+  background-color: white; 
   border: none;
-  color: white;
+  color: black;
   padding: 10px 52px;
   text-align: center;
   text-decoration: none;
@@ -33,12 +41,23 @@ button {
   font-size: 16px;
 }
 
+form{
+  text-align: center;
+  padding-top: 80px;
+ 
+}
+h3{
+  color:white;
+  padding:10px;
+}
+
+
 </style>
 </head>
 <body>
   <h1>Lesgoo Fitness</h1>
-  <div ng-app="myApp">
-    <div ng-controller="LoginController">
+  <div ng-app="myApp" class="container">
+    <div  ng-controller="LoginController">
       <form ng-submit="login()">
         <h3>Username</h3>
         <input type="text" ng-model="username" placeholder="Username">
