@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html ng-app="calculatorApp">
+<head>
+    <title>Combined Calculator</title>
+    <link rel="stylesheet" href="calculator.css">
+    <script src="angular.min.js"></script>
+</head>
+<body0>
+
+<header>
+    <h1>Lesgoo Fitness</h1>
+    <nav>
+      <a href="fitmain.html">Home</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="gym.html">Workouts</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+  </header>
+
+</body0>
+<body1>
+    <div ng-controller="bmiController" class="container1">
+        <h1>BMI Calculator</h1>
+        <!-- BMI Calculator HTML -->
+        <p>Height (cm)</p>
+        <input type="number" ng-model="height">
+
+        <p>Weight (kg)</p>
+        <input type="number" ng-model="weight">
+
+        <button ng-click="calculateBMI()">Calculate</button>
+
+        <div id="result1">
+            <p ng-if="bmiValue">{{ bmiCategory }}: {{ bmiValue }}</p>
+        </div>
+
+    </div>
+</body1>
+<body2>
+    <div ng-controller="calorieController" class="container2">
+        <h1>Calorie Calculator</h1>
+
+        <p>Age (years)</p>
+        <input type="number" ng-model="age">
+
+        <p>Weight (kg)</p>
+        <input type="number" ng-model="weight">
+
+        <p>Height (cm)</p>
+        <input type="number" ng-model="height">
+
+        <p>Gender</p>
+        <select ng-model="gender">
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <p>Activity Level</p>
+        <select ng-model="activityLevel">
+            <option value="sedentary">Sedentary (little or no exercise)</option>
+            <option value="lightlyActive">Lightly Active (light exercise/sports 1-3 days/week)</option>
+            <option value="moderatelyActive">Moderately Active (moderate exercise/sports 3-5 days/week)</option>
+            <option value="veryActive">Very Active (hard exercise/sports 6-7 days a week)</option>
+            <option value="extraActive">Extra Active (very hard exercise/sports and a physical job)</option>
+        </select>
+
+        <button ng-click="calculateCalories()">Calculate</button>
+
+        <div id="result2">
+            <p ng-if="calories">Your Daily Calorie Intake: {{ calories }} calories</p>
+        </div>
+    </div>
+</body2>
+<script>
+    var app = angular.module("calculatorApp", []);
+
+    app.controller("bmiController", function($scope) {
+    $scope.calculateBMI = function() {
+        // BMI Calculator logic
+        var height = parseFloat($scope.height);
+        var weight = parseFloat($scope.weight);
+
+        var resultElement = document.getElementById('result1');
+
+        if (!height || isNaN(height) || height < 0) {
+            resultElement.innerText = "Please provide a valid height";
+            return;
+        } else if (!weight || isNaN(weight) || weight < 0) {
+            resultElement.innerText = "Please provide a valid weight";
+            return;
+        }
+
+        var bmi = (weight / ((height * height) / 10000)).toFixed(2);
+
+        if (bmi < 18.5) {
+            resultElement.innerText = "Under Weight";
+            return;
+        } else if (bmi >= 18.5 && bmi < 24.9) {
+            resultElement.innerText = "Normal";
+            return;
+        } else if (bmi >= 25 && bmi < 29.9) {
+            resultElement.innerText = "Over Weight";
+            return;
+        } else if (bmi >= 30 && bmi < 34.9) {
+            resultElement.innerText = "Obesity (Class I)";
+            return;
+        } else if (bmi >= 35.5 && bmi < 39.9) {
+            resultElement.innerText = "Obesity (Class II)";
+            return;
+        } else {
+            resultElement.innerText = "Extreme Obesity";
+            return;
+        }
+
+        resultElement.innerText = "";
+    };
+});
+
+        app.controller('calorieController', function($scope) {
+        $scope.calculateCalories = function() {
+            var age = parseInt($scope.age);
+            var weight = parseFloat($scope.weight);
+            var height = parseFloat($scope.height);
+            var gender = $scope.gender;
+            var activityLevel = $scope.activityLevel;
+
+            var resultElement = document.getElementById('result2');
+
+            if (!age || isNaN(age) || age <= 0) {
+                resultElement.innerText = "Please provide a valid age";
+                return;
+            } else if (!weight || isNaN(weight) || weight <= 0) {
+                resultElement.innerText = "Please provide a valid weight";
+                return;
+            } else if (!height || isNaN(height) || height <= 0) {
+                resultElement.innerText = "Please provide a valid height";
+                return;
+            }
+
+            var bmr;
+            if (gender === 'male') {
+                bmr = 88.362 + (13.397 * weight) + (4.799 * height) - (5.677 * age);
+            } else {
+                bmr = 447.593 + (9.247 * weight) + (3.098 * height) - (4.330 * age);
+            }
+
+            var activityFactor;
+            switch (activityLevel) {
+                case 'sedentary':
+                    activityFactor = 1.2;
+                    break;
+                case 'lightlyActive':
+                    activityFactor = 1.375;
+                    break;
+                case 'moderatelyActive':
+                    activityFactor = 1.55;
+                    break;
+                case 'veryActive':
+                    activityFactor = 1.725;
+                    break;
+                case 'extraActive':
+                    activityFactor = 1.9;
+                    break;
+                default:
+                    activityFactor = 1.2;
+            }
+
+            var calories = (bmr * activityFactor).toFixed(2);
+
+            $scope.calories = calories;
+            resultElement.innerText = calories;
+
+        };
+    });
+</script>
+</html>

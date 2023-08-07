@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="gymApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="fitmain.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script >
+      angular.module('gymApp', []);
+      angular.module('gymApp').controller('HomeController', ['$scope', function($scope) {
+}]);
+
+  </script>
+  <title>Gym Website</title>
+</head>
+<body ng-controller="HomeController">
+<div class="container">
+  <header>
+    <h1>Lesgoo Fitness</h1>
+    <nav>
+      <a href="fitmain.html">Home</a>
+      <a href="calculator.html">Calculator</a>
+      <a href="gym.html">Workouts</a>
+      <a href="blog.html">Blog</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <h1>Welcome to our Fitness Gym</h1>
+      <p>Your journey to a healthier lifestyle starts here.</p>
+    </section>
+    <section class="services">
+      <h2>Our services</h2>
+      <ul>
+        <li>BMI Calculator and Calorie Calculator</li>
+        <li>Workout Routines</li>
+        <li>Diet Plans</li>
+      </ul>
+    </section>
+  </main>
+</div>
+  <footer>
+    <p>&copy; 2023 Gym Website. All rights reserved.</p>
+  </footer>
+</body>
+</html>
