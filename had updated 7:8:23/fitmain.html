@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="lesgooApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="fitmain.css">
+  <style>
+    /* CSS for the hover effect */
+    .supplements-images img {
+      transition: transform 0.3s ease;
+    }
+
+    .supplements-images img:hover {
+      transform: scale(1.1);
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Lesgoo Fitness</h1>
+    <nav>
+      <a href="fitmain.html">Home</a>
+      <a href="blog.html">Blog</a>
+      <a href="gym.html">Workouts</a>
+      <a href="calculator.html">BMI</a>
+    </nav>
+  </header>
+  <main ng-controller="MainController">
+    <section>
+      <h2>Welcome to Lesgoo Fitness</h2>
+      <p>We at Lesgoo Fitness offer a variety of fitness routines and services. We also provide diet plans for our customers.</p>
+      <p>Our classes are designed to help you reach your fitness goals. We offer classes for all levels of fitness, so you can find the perfect class for you.</p>
+      <p>We also offer fitness plans based on BMI (Body Mass Index), and you can choose your diet plans based on your oriented goal.</p>
+    </section>
+    <section>
+      <h2>Our services</h2>
+      <ul>
+        <li>BMI Calculator</li>
+        <li>Workout Routines</li>
+        <li>Diet Plans</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Supplements</h2>
+      <p>Check out our selection of high-quality supplements to complement your fitness journey:</p>
+      <div class="supplements-images">
+        <!-- Replace the image URLs with the actual URLs of the supplement images -->
+        <img ng-src=".jpeg" alt="Supplement 1">
+        <img ng-src=".jpeg" alt="Supplement 2">
+        <img ng-src=".jpeg" alt="Supplement 3">
+      </div>
+    </section>
+
+    <section>
+      <h2>Our contact information</h2>
+      <p>Gym is located at Malad West</p>
+      <p>Our phone number is +919819384868</p>
+      <p>Our email address is granitedonut.com.</p>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2023 Lesgoo Fitness. All rights reserved.</p>
+  </footer>
+
+  <script>
+    angular.module('lesgooApp', [])
+      .controller('MainController', function($scope) {
+        $scope.welcomeMessage = 'We at Lesgoo Fitness offer a variety of fitness routines and services. We also provide diet plans for our customers.';
+        $scope.classesMessage = 'Our classes are designed to help you reach your fitness goals. We offer classes for all levels of fitness, so you can find the perfect class for you.';
+        $scope.plansMessage = 'We also offer fitness plans based on BMI (Body Mass Index), and you can choose your diet plans based on your oriented goal.';
+        $scope.services = ['BMI Calculator', 'Workout Routines', 'Diet Plans'];
+      });
+  </script>
+</body>
+</html>
