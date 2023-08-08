@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html ng-app="blogApp">
+<head>
+    <link rel="stylesheet" href="blog.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Blog</title>
+</head>
+<body ng-controller="BlogController">
+    <h1>
+        Our blog
+    </h1>
+    <div class="section">
+        <div class="card" ng-repeat="post in posts">
+            <div class="image-section" ng-class="post.imageClass"></div>
+            <div class="content">
+                <h2>{{ post.title }}</h2>
+                <p>{{ post.content }}</p>
+               
+                <a href="{{ post.link }}" class="button">Read More</a><br>
+                 <button ng-click="incrementLikes(post)">Like</button>
+                <span>Likes: {{ post.likes }}</span>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="card" ng-repeat="postt in postts">
+            <div class="image-section" ng-class="postt.imageClass"></div>
+            <div class="content">
+                <h2>{{ postt.title }}</h2>
+                <p>{{ postt.content }}</p>
+               
+                <a href="{{ postt.link }}" class="button">Read More</a><br>
+                 <button ng-click="incrementLikes(postt)">Like</button>
+                <span>Likes: {{ postt.likes }}</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('blogApp', []);
+
+        app.controller('BlogController', function($scope) {
+            $scope.posts = [
+                {
+                    title: 'Title One',
+                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    link: '',
+                    imageClass: 'img-one',
+                    likes: 0
+                },
+                {
+                    title: 'Title Two',
+                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    link: '',
+                    imageClass: 'img-two',
+                    likes: 0
+                },
+                {
+                    title: 'Title Three',
+                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    link: '',
+                    imageClass: 'img-three',
+                    likes: 0
+                }
+                
+              
+            ];
+            $scope.postts = [
+                {
+                    title: 'Title Four',
+                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    link: '',
+                    imageClass: 'img-four',
+                    likes: 0
+                },
+                {
+                    title: 'Title Five',
+                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    link: '',
+                    imageClass: 'img-five',
+                    likes: 0
+                },
+                {
+                    title: 'Title Six',
+                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    link: '',
+                    imageClass: 'img-six',
+                    likes: 0
+                }
+                
+              
+            ];
+
+            $scope.incrementLikes = function(post) {
+                post.likes++;
+            };
+        });
+    </script>
+</body>
+</html>
