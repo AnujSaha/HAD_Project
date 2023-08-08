@@ -2,10 +2,20 @@
 <html ng-app="blogApp">
 <head>
     <link rel="stylesheet" href="blog.css">
+    <link rel="stylesheet" href="fitmain.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
     <title>Blog</title>
 </head>
 <body ng-controller="BlogController">
+    <header>
+        <h1>Lesgoo Fitness</h1>
+        <nav>
+          <a href="fitmain.html">Home</a>
+          <a href="blog.html">Blog</a>
+          <a href="about.html">About</a>
+          
+        </nav>
+      </header>
     <h1>
         Our blog
     </h1>
@@ -42,22 +52,22 @@
         app.controller('BlogController', function($scope) {
             $scope.posts = [
                 {
-                    title: 'Title One',
-                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    title: 'Plyometrics ',
+                    content: 'Plyometrics are dynamic exercises that help build strength, power, balance, and agility, although starting slow and simple is best.',
                     link: '',
                     imageClass: 'img-one',
                     likes: 0
                 },
                 {
-                    title: 'Title Two',
-                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    title: 'Kettlebells Exercise',
+                    content: 'Kettlebells function similarly to dumbbells, and can substitute for them in traditional exercises like bicep curls, lunges, and squats. But the signature kettlebell move is the swing.',
                     link: '',
                     imageClass: 'img-two',
                     likes: 0
                 },
                 {
-                    title: 'Title Three',
-                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    title: 'Underwater Fitness',
+                    content: 'Our buoyancy in water takes pressure off the joints, making movement less painful than it might be on land. And exercising in water always provides a soft landing if you lose your balance.',
                     link: '',
                     imageClass: 'img-three',
                     likes: 0
@@ -67,22 +77,22 @@
             ];
             $scope.postts = [
                 {
-                    title: 'Title Four',
-                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    title: 'Biceps Tips',
+                    content: 'For this biceps-building exercise, you’ll need a pair of dumbbells. But if you don’t have any, you can use cans of soup, full plastic water bottles, or any other easy-to-hold item that feels like an appropriate weight.',
                     link: '',
                     imageClass: 'img-four',
                     likes: 0
                 },
                 {
-                    title: 'Title Five',
-                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    title: 'Working out your brain',
+                    content: 'Cardiovascular exercise, which gets the heart pumping, the muscles moving, and the sweat glands working, is one of the best medicines for overall health.',
                     link: '',
                     imageClass: 'img-five',
                     likes: 0
                 },
                 {
-                    title: 'Title Six',
-                    content: 'W3Schools is optimized for learning and training. Examples might be simplified to improve reading and learning. Tutorials, references, and examples are constantly reviewed to avoid errors, but we cannot warrant full correctness of all content.',
+                    title: 'Great workout, Every workout',
+                    content: 'Some weeks, you might not be feeling your workouts. It happens to all of us. Whether you’ve got a lot going on at work or sleeping terribly, you will be lagging some days.',
                     link: '',
                     imageClass: 'img-six',
                     likes: 0
@@ -96,5 +106,9 @@
             };
         });
     </script>
+
+  <footer>
+    <p>&copy; 2023 Lesgoo Fitnesss. All rights reserved.</p>
+  </footer>
 </body>
 </html>
