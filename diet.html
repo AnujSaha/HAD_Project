@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html ng-app="dietApp">
+<head>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <title>Diet Plans</title>
+    <style>
+        body {
+            background-color: #6e6b6b;
+	    margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            font-family: Arial, sans-serif; /* Specify a font family */
+        }
+	header {
+            background-color: #3d3d3d;
+            padding: 15px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            color: #fff;
+            font-size: 36px;
+            margin: 0;
+            padding-bottom: 10px;
+        }
+
+        nav {
+            margin-top: 10px;
+        }
+
+        nav a {
+            color: #d6c954;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        nav a:hover {
+            color: #fff;
+            border-bottom: 2px solid #d6c954;
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            font-size: 40px;
+            margin-top: 40px;
+        }
+
+
+        .section {
+            width: 75%;
+            margin: 75px auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-gap: 25px;
+        }
+
+        .card {
+            background-color: #383636;
+            box-shadow: 0px 4px 8px 0px rgba(0, 0, 0, 0.4);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .image-section {
+            min-height: 250px;
+        }
+
+        .card .img-one {
+            background-image: url(b1.jpg);
+        }
+
+        .card .img-two {
+            background-image: url(bb2.jpg);
+        }
+
+        .card .img-three {
+            background-image: url(b3.jpg);
+        }
+
+        .card .img-four {
+            background-image: url(b4.jpg);
+        }
+
+        .card .img-five {
+            background-image: url(b5.jpg);
+        }
+
+        .card .img-six {
+            background-image: url(b6.jpg);
+        }
+
+        .content {
+            text-align: center;
+            padding: 20px 15px;
+        }
+
+        .content h2 {
+            letter-spacing: 2px;
+            color: #c9c9c9;
+            font-size: 24px;
+        }
+
+        .content p {
+            font-size: 16px;
+            color: #ada5a5;
+            margin: 15px 0px;
+        }
+
+        .content a {
+            text-decoration: none;
+            font-size: 16px;
+            color: #222;
+            letter-spacing: 2px;
+            display: inline-block;
+            background-color: #d6c954;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            transition: background-color 0.5s ease;
+        }
+
+        .content a:hover {
+            background-color: #87803d;
+        }
+
+        .content span {
+            color: white;
+            display: block;
+            margin-top: 10px;
+            font-size: 18px;
+	}
+
+	body {
+            position: relative; /* Set body to relative positioning */
+            min-height: 100vh; /* Ensure minimum viewport height */
+        }
+
+        .content-wrapper {
+            padding-bottom: 200px; /* Adjust padding to make space for the footer */
+        }
+
+        footer {
+            background-color: #3d3d3d;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 14px;
+        }
+	
+       
+        
+    </style>
+</head>
+<body ng-controller="DietController">
+    <header>
+        <h1>Lesgoo Fitness - Diet Plans</h1>
+        <nav>
+            <a href="fitmain.html">Home</a>
+            <a href="diet.html">Diet Plans</a>
+            <a href="about.html">About</a>
+        </nav>
+    </header>
+    <h1>
+        Explore Our Diet Plans
+    </h1>
+    <div class="section">
+        <div class="card" ng-repeat="plan in dietPlans">
+            <div class="image-section" ng-class="plan.imageClass"></div>
+            <div class="content">
+                <h2>{{ plan.title }}</h2>
+                <p>{{ plan.description }}</p>
+                <a href="{{ plan.link }}" class="button">Learn More</a><br>
+                <button ng-click="incrementLikes(plan)">Like</button>
+                <span>Likes: {{ plan.likes }}</span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module('dietApp', []);
+
+        app.controller('DietController', function($scope) {
+            $scope.dietPlans = [
+                {
+                    title: 'Balanced Diet Plan',
+                    description: 'Achieve optimal health with our well-rounded balanced diet plan. Get a mix of essential nutrients from a variety of food groups.',
+                    link: '',
+                    imageClass: 'img-one',
+                    likes: 0
+                },
+                {
+                    title: 'Keto Diet Plan',
+                    description: 'Experience the benefits of the ketogenic diet with our carefully crafted plan. Embrace high fats and low carbs to achieve ketosis and promote fat loss.',
+                    link: '',
+                    imageClass: 'img-two',
+                    likes: 0
+                },
+                {
+                    title: 'Vegetarian Meal Plan',
+                    description: 'Discover the benefits of a plant-based diet with our vegetarian meal plan. Get protein from alternative sources and enjoy a variety of nutrient-rich foods.',
+                    link: '',
+                    imageClass: 'img-three',
+                    likes: 0
+                }
+            ];
+
+            $scope.incrementLikes = function(plan) {
+                plan.likes++;
+            };
+        });
+    </script>
+
+    <footer>
+        <p>&copy; 2023 Lesgoo Fitness. All rights reserved.</p>
+    </footer>
+    </body>
+</html>
